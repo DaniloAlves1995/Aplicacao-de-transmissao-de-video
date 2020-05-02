@@ -26,6 +26,7 @@
     "semantic-ui-react": "^0.88.2",
     "webrtc-adapter": "^1.4.0",
     "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
     "websocket": "^1.0.31"
   },
   "eslintConfig": {
@@ -42,7 +43,6 @@
     "path": "^0.12.7",
     "postcss-loader": "^3.0.0",
     "url-loader": "^4.0.0",
-    "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
   }
 }
