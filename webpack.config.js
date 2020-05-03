@@ -54,7 +54,7 @@ module.exports = {
     externals: {
         // global app config object
         config: JSON.stringify({
-            apiUrl: process.env.PORT || 4000
+            apiUrl: REACT_APP_API_URL
         })
     }
 }
