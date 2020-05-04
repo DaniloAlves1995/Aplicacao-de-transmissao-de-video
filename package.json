@@ -2,7 +2,8 @@
   "name": "webcom",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --open",
+    "dev": "webpack-dev-server --open",
+    "start": "./node_modules/webpack/bin/webpack.js -p --progress && node server.js",
     "postinstall": "cp node_modules/webrtc-adapter/out/adapter.js ."
   },
   "dependencies": {
