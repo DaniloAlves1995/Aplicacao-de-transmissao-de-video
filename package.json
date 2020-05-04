@@ -33,16 +33,15 @@
     "postcss-loader": "^3.0.0",
     "url-loader": "^4.0.0",
     "file-loader": "^6.0.0",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "path": "^0.12.7",
+    "webpack-dev-server": "^3.10.3",
     "websocket": "^1.0.31"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "@babel/preset-react": "^7.0.0",
-    "path": "^0.12.7",
-    "webpack-dev-server": "^3.10.3"
-  }
+  "devDependencies": {}
 }
