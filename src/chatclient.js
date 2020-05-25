@@ -115,7 +115,9 @@ function connect(name) {
   if (document.location.protocol === "https:") {
     scheme += "s";
   }
-  serverUrl = scheme + "://" + myHostname + ":6503";
+  
+  var port = process.env.REACT_APP_API_URL || 9000;
+  serverUrl = scheme + "://" + myHostname + ":"+port;
 
   log(`Connecting to server: ${serverUrl}`);
   connection = new WebSocket(serverUrl, "json");
@@ -136,6 +138,7 @@ function connect(name) {
     var time = new Date(msg.date);
     var timeStr = time.toLocaleTimeString();
 
+    
     switch (msg.type) {
       case "id":
         clientID = msg.id;
@@ -199,8 +202,9 @@ function connect(name) {
       // Unknown message; output to console for debugging.
 
       default:
-        log_error("Unknown message received:");
-        log_error(msg);
+        //log_error("Unknown message received:");
+        //log_error(msg);
+        break;
     }
 
     // If there's text to insert into the chat buffer, do so now, then
@@ -211,6 +215,8 @@ function connect(name) {
       //chatBox.scrollTop = chatBox.scrollHeight - chatBox.clientHeight;
     }
   };
+
+  return connection;
 }
 
 // Handles a click on the Send button (or pressing return/enter) by

@@ -37,7 +37,8 @@ const Chat = ({ usuario, connection, updateConnection, channel, updateChannel })
   let [name, setName] = useState("");
 
   useEffect(() => {
-    webSocket.current = new WebSocket("ws://localhost:9000");
+    
+    webSocket.current = connect(name);
     webSocket.current.onmessage = message => {
       const data = JSON.parse(message.data);
       setSocketMessages(prev => [...prev, data]);
@@ -123,7 +124,17 @@ const Chat = ({ usuario, connection, updateConnection, channel, updateChannel })
       );
 
       setUsers(loggedIn);
-      let localConnection = new RTCPeerConnection(configuration);
+      //let localConnection = new RTCPeerConnection(configuration);
+
+      let localConnection = new RTCPeerConnection({
+        iceServers: [     // Information about ICE servers - Use your own!
+          {
+            urls: "turn:localhost",  // A TURN server
+            username: "webrtc",
+            credential: "turnserver"
+          }
+        ]
+      });
 
       //when the browser finds an ice candidate we send it to another peer
       localConnection.onicecandidate = ({ candidate }) => {
@@ -191,6 +202,7 @@ const Chat = ({ usuario, connection, updateConnection, channel, updateChannel })
 
   //when somebody wants to message us
   const onOffer = ({ offer, name }) => {
+    console.log("passou no onOffer");
     setConnectedTo(name);
     connectedRef.current = name;
 
@@ -247,7 +259,6 @@ const Chat = ({ usuario, connection, updateConnection, channel, updateChannel })
         Sua coversa foi cancelada!
       </SweetAlert>
     );
-    setConnecting(true);
     setConnectedTo("");
     connectedRef.current = "";
     setConnecting(false);
@@ -313,6 +324,7 @@ const Chat = ({ usuario, connection, updateConnection, channel, updateChannel })
   };
 
   const handleConnection = name => {
+    console.log("passou no handleConnection");
     var dataChannelOptions = {
       reliable: true
     };
