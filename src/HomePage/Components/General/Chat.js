@@ -35,10 +35,11 @@ const Chat = ({ usuario, connection, updateConnection, channel, updateChannel })
   const [nameCall, setNameCall] = useState("");
   const [chatWasCancel, setchatWasCancel] = useState(false);
   let [name, setName] = useState("");
+  var port = process.env.PORT || 9000;
 
   useEffect(() => {
     
-    webSocket.current = connect(name);
+    webSocket.current = connect(name,port);
     webSocket.current.onmessage = message => {
       const data = JSON.parse(message.data);
       setSocketMessages(prev => [...prev, data]);
@@ -46,7 +47,7 @@ const Chat = ({ usuario, connection, updateConnection, channel, updateChannel })
 
     webSocket.current.onopen = function (response) {
       handleLogin();
-      connect(name);
+      connect(name,port);
       setFuncao(showBoxVideo);
       setChamandoMenssageF(setChamandoMenssageHandler);
       setConnectionCanceled(ConnectionNagative);

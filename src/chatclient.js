@@ -105,7 +105,7 @@ function setUsername(name) {
 
 // Open and configure the connection to the WebSocket server.
 
-function connect(name) {
+function connect(name, port) {
   var serverUrl;
   var scheme = "ws";
 
@@ -116,7 +116,7 @@ function connect(name) {
     scheme += "s";
   }
 
-  //var port = process.env.PORT || 9000;
+  
   myHostname = "testedeploywebcom.herokuapp.com";
   serverUrl = scheme + "://" + myHostname + ":"+port;
 
