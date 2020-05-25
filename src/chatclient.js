@@ -116,8 +116,8 @@ function connect(name) {
     scheme += "s";
   }
 
-  var port = process.env.PORT || 9000;
-  myHostname = "https://testedeploywebcom.herokuapp.com";
+  //var port = process.env.PORT || 9000;
+  myHostname = "testedeploywebcom.herokuapp.com";
   serverUrl = scheme + "://" + myHostname + ":"+port;
 
   log(`Connecting to server: ${serverUrl}`);
