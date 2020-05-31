@@ -35,7 +35,7 @@ const Chat = ({ usuario, connection, updateConnection, channel, updateChannel })
   const [nameCall, setNameCall] = useState("");
   const [chatWasCancel, setchatWasCancel] = useState(false);
   let [name, setName] = useState("");
-  console.log("REACT_API = "+process.env.REACT_APP_API_URL);
+  console.log("REACT_API = "+process.env.API_URL);
   var port = process.env.REACT_APP_API_URL || 9000;
 
   useEffect(() => {
