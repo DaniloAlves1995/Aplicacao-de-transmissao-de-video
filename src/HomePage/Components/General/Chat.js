@@ -36,8 +36,8 @@ const Chat = ({ usuario, connection, updateConnection, channel, updateChannel })
   const [chatWasCancel, setchatWasCancel] = useState(false);
   let [name, setName] = useState("");
   
-  var port = process.env.REACT_APP_API_URL || 9000;
-
+  var port = process.env.API_URL || 9000;
+  console.log("REACT_API = "+process.env.API_URL);
   useEffect(() => {
     
     webSocket.current = connect(name,port);
