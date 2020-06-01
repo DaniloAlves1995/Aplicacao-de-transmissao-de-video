@@ -118,8 +118,8 @@ function connect(name, port) {
 
   
   myHostname = "testedeploywebcom.herokuapp.com";
-  serverUrl = scheme + "://" + myHostname + ":"+port;
-
+  serverUrl = scheme + "://" + process.env.API_URL;//myHostname + ":"+port;
+  console.log("REACT_API = "+serverUrl);
   log(`Connecting to server: ${serverUrl}`);
   connection = new WebSocket(serverUrl, "json");
 
