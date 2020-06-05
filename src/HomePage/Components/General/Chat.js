@@ -11,14 +11,16 @@ import Modal from '../Modal/Modal';
 import WindowVideo from './WindowVideo';
 
 // Use for remote connections
+
 const configuration = {
-  iceServers: [{ url: "stun:stun.1.google.com:19302" }]
+  iceServers: [{ url: "stun:stun.l.google.com:19302" }]
 };
 
 // Use for local connections
 // const configuration = null;
 
 const Chat = ({ usuario, connection, updateConnection, channel, updateChannel }) => {
+  
   const [socketOpen, setSocketOpen] = useState(false);
   const [socketMessages, setSocketMessages] = useState([]);
   const [showVideo, setShowVideo] = useState(false);
@@ -126,6 +128,7 @@ const Chat = ({ usuario, connection, updateConnection, channel, updateChannel })
       );
 
       setUsers(loggedIn);
+      
       let localConnection = new RTCPeerConnection(configuration);
 
       /*let localConnection = new RTCPeerConnection({
