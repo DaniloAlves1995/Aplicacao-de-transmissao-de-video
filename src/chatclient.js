@@ -275,8 +275,11 @@ async function createPeerConnection() {
 
   // Create an RTCPeerConnection which knows to use our chosen
   // STUN server.
-
-  myPeerConnection = new RTCPeerConnection({
+  const configuration = {
+    iceServers: [{ url: "stun:stun.l.google.com:19302" }]
+  };
+  myPeerConnection = new RTCPeerConnection(configuration);
+  /*myPeerConnection = new RTCPeerConnection({
     iceServers: [     // Information about ICE servers - Use your own!
       {
         urls: "turn:" + myHostname,  // A TURN server
@@ -284,7 +287,7 @@ async function createPeerConnection() {
         credential: "turnserver"
       }
     ]
-  });
+  });*/
 
   // Set up event handlers for the ICE negotiation process.
 
