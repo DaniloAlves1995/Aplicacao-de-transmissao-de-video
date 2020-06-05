@@ -126,9 +126,9 @@ const Chat = ({ usuario, connection, updateConnection, channel, updateChannel })
       );
 
       setUsers(loggedIn);
-      //let localConnection = new RTCPeerConnection(configuration);
+      let localConnection = new RTCPeerConnection(configuration);
 
-      let localConnection = new RTCPeerConnection({
+      /*let localConnection = new RTCPeerConnection({
         iceServers: [     // Information about ICE servers - Use your own!
           {
             urls: "turn:localhost",  // A TURN server
@@ -136,7 +136,7 @@ const Chat = ({ usuario, connection, updateConnection, channel, updateChannel })
             credential: "turnserver"
           }
         ]
-      });
+      });*/
 
       //when the browser finds an ice candidate we send it to another peer
       localConnection.onicecandidate = ({ candidate }) => {
