@@ -38,7 +38,7 @@
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.0.0",
     "path": "^0.12.7",
-    "webpack-dev-server": "^3.10.3",
+    "webpack-dev-server": "^5.2.1",
     "websocket": "^1.0.31"
   },
   "eslintConfig": {
